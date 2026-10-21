@@ -881,10 +881,49 @@ if (audioType === "whole") {
     const title = document.createElement("h3");
     title.textContent = lessonName;
 
-    // Audio file has exactly the same name as the button
-    const audio = document.createElement("audio");
-    audio.controls = true;
-    audio.src = lessonPath + `${lessonName.toLowerCase()}.mp3`;
+// Audio file has the same name as the button
+const audio = document.createElement("audio");
+audio.controls = true;
+
+// Try different filename variations automatically
+const fileNames = [
+    `${lessonName}.mp3`,
+    `${lessonName.toLowerCase()}.mp3`,
+    `${lessonName.toUpperCase()}.mp3`,
+    `${lessonName.replace(/\s+/g, "")}.mp3`,
+    `${lessonName.toLowerCase().replace(/\s+/g, "")}.mp3`
+];
+
+let fileIndex = 0;
+
+function tryNextAudioFile() {
+
+    if (fileIndex >= fileNames.length) {
+        console.error(
+            "Audio file not found:",
+            currentLevel,
+            currentBook,
+            currentLesson,
+            fileNames
+        );
+        return;
+    }
+
+    const fileName = fileNames[fileIndex];
+
+    audio.src = lessonPath + fileName;
+
+    console.log("Trying audio:", audio.src);
+
+    fileIndex++;
+}
+
+audio.addEventListener("error", function () {
+    tryNextAudioFile();
+});
+
+// Try the first filename
+tryNextAudioFile();
 
     audioItem.appendChild(title);
     audioItem.appendChild(audio);

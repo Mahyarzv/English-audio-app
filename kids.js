@@ -843,7 +843,6 @@ function createAudioFiles() {
 
     const levelFolder = currentLevel
         .replace(/\s+/g, "");
-        .replace(/" " , "");
 
     const lessonPath =
         `audio/${levelFolder}/${currentBook}/lesson${currentLesson}/`;

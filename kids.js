@@ -842,7 +842,6 @@ function createAudioFiles() {
     const level = levels[currentLevel];
 
     const levelFolder = currentLevel
-        .toLowerCase()
         .replace(/\s+/g, "");
 
     const lessonPath =
@@ -885,7 +884,7 @@ if (audioType === "whole") {
     // Audio file has exactly the same name as the button
     const audio = document.createElement("audio");
     audio.controls = true;
-    audio.src = lessonPath + `${lessonName}.mp3`;
+    audio.src = lessonPath + `${lessonName.toLowerCase()}.mp3`;
 
     audioItem.appendChild(title);
     audioItem.appendChild(audio);

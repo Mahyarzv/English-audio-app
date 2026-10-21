@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Iran Language Institute</title>
+    <link rel="icon" type="image/png" href="ili.png">
+    <link rel="stylesheet" href="kids.css">
+
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Iran Language Institute</h1>
+        <h2>Kid content</h2>
+        <p id="breadcrumb">Home</p>
+    </header>
+
+    <main>
+
+        <!-- HOME -->
+        <section id="homePage" class="page">
+
+            <h2>Choose Your Level</h2>
+
+            <div id="levelsContainer" class="button-container"></div>
+
+        </section>
+
+
+        <!-- BOOKS -->
+        <section id="booksPage" class="page hidden">
+
+            <button class="back-button" onclick="goHome()">
+                ← Back
+            </button>
+
+            <h2 id="levelTitle"></h2>
+
+            <div class="button-container">
+
+                <button id="studentBookButton" onclick="openBook('student-book')">
+                    📕 Student Book
+                </button>
+
+                <button id="workbookButton" onclick="openBook('workbook')">
+                    📗 Workbook
+                </button>
+
+                <button id="activityBookButton" onclick="openBook('activity-book')">
+                    📘 Activity Book
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- LESSONS -->
+        <section id="lessonsPage" class="page hidden">
+
+            <button class="back-button" onclick="goToBooks()">
+                ← Back
+            </button>
+
+            <h2 id="bookTitle"></h2>
+
+            <div id="lessonsContainer" class="button-container"></div>
+
+        </section>
+
+
+        <!-- AUDIO -->
+        <section id="audioPage" class="page hidden">
+
+            <button class="back-button" onclick="goToLessons()">
+                ← Back
+            </button>
+
+            <h2 id="lessonTitle"></h2>
+
+            <div id="audioContainer"></div>
+
+        </section>
+
+    </main>
+
+    <script src="kids.js"></script>
+
+</body>
+
+</html>
